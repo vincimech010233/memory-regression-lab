@@ -1,11 +1,11 @@
 {
   "classification": "OBSERVED",
-  "memory_available_kib": 9981412,
-  "disk_free_bytes": 386754613248,
+  "memory_available_kib": 10197636,
+  "disk_free_bytes": 396627263488,
   "load_average": [
-    0.390625,
-    0.44970703125,
-    0.8564453125
+    1.07470703125,
+    1.5107421875,
+    1.49755859375
   ],
   "cargo_jobs": 2,
   "numeric_threads": 2,

@@ -1,11 +1,30 @@
 use memory_regression_lab::{Config, Program, summarize};
 use serde_json::{Value, json};
 use std::{
-    io::Read,
+    io::{Read, Write},
     os::unix::process::CommandExt,
     process::{Command, Stdio},
     time::{Duration, Instant},
 };
+fn resolved_output(path: &str) -> Result<std::path::PathBuf, String> {
+    let path = std::path::Path::new(path);
+    let filename = path.file_name().ok_or("report filename required")?;
+    let parent = path
+        .parent()
+        .filter(|p| !p.as_os_str().is_empty())
+        .unwrap_or(std::path::Path::new("."));
+    Ok(std::fs::canonicalize(parent)
+        .map_err(|e| e.to_string())?
+        .join(filename))
+}
+fn create_report(path: &str, bytes: impl AsRef<[u8]>) -> Result<(), String> {
+    let mut file = std::fs::OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(path)
+        .map_err(|e| e.to_string())?;
+    file.write_all(bytes.as_ref()).map_err(|e| e.to_string())
+}
 fn measure(p: &Program, timeout: u64) -> Result<Value, String> {
     let mut cmd = Command::new(&p.executable);
     cmd.args(&p.args)
@@ -111,6 +130,14 @@ fn run() -> Result<(), String> {
     if args.len() != 4 {
         return Err("usage: memory-regression-lab CONFIG REPORT_JSON REPORT_MD".into());
     }
+    let json_path = resolved_output(&args[2])?;
+    let markdown_path = resolved_output(&args[3])?;
+    if json_path == markdown_path
+        || std::fs::symlink_metadata(&json_path).is_ok()
+        || std::fs::symlink_metadata(&markdown_path).is_ok()
+    {
+        return Err("reports already exist or overlap; choose distinct fresh output paths to preserve evidence".into());
+    }
     if std::fs::metadata(&args[1])
         .map_err(|e| e.to_string())?
         .len()
@@ -160,9 +187,9 @@ fn run() -> Result<(), String> {
         (paired.iter().map(|d| (d - mean).powi(2)).sum::<f64>() / (paired.len() - 1) as f64).sqrt();
     let w = 1.96 * sd / (paired.len() as f64).sqrt();
     let r = json!({"classification":"OBSERVED","config":config,"pair_order":(0..config.repeats).map(|i|if i%2==0{"baseline_then_candidate"}else{"candidate_then_baseline"}).collect::<Vec<_>>(),"verdict":"INCONCLUSIVE: timing observations are not proof of a regression","baseline":{"summary":sa,"samples":a},"candidate":{"summary":sb,"samples":b},"paired_candidate_minus_baseline_ms":{"mean":mean,"approximate_ci95":[mean-w,mean+w]},"metrics":"Linux wait4 peak RSS includes process image and allocator behavior. Instrumentation counts fixture allocator calls/bytes; neither proves leaks. Normal 1.96 intervals are exploratory and can under-cover at small n. Single-process trusted fixtures only."});
-    std::fs::write(&args[2], serde_json::to_string_pretty(&r).unwrap())
+    create_report(&args[2], serde_json::to_string_pretty(&r).unwrap())
         .map_err(|e| e.to_string())?;
-    std::fs::write(&args[3],format!("# Memory Regression Lab\n\nOBSERVED; {}\n\nBaseline mean {:.3} ms; candidate mean {:.3} ms. Paired mean difference {:.3} ms, exploratory interval [{:.3}, {:.3}] ms.\n\n{}\n",r["verdict"].as_str().unwrap(),r["baseline"]["summary"]["mean"].as_f64().unwrap(),r["candidate"]["summary"]["mean"].as_f64().unwrap(),mean,mean-w,mean+w,r["metrics"].as_str().unwrap())).map_err(|e|e.to_string())?;
+    create_report(&args[3],format!("# Memory Regression Lab\n\nOBSERVED; {}\n\nBaseline mean {:.3} ms; candidate mean {:.3} ms. Paired mean difference {:.3} ms, exploratory interval [{:.3}, {:.3}] ms.\n\n{}\n",r["verdict"].as_str().unwrap(),r["baseline"]["summary"]["mean"].as_f64().unwrap(),r["candidate"]["summary"]["mean"].as_f64().unwrap(),mean,mean-w,mean+w,r["metrics"].as_str().unwrap())).map_err(|e|e.to_string())?;
     Ok(())
 }
 fn main() {

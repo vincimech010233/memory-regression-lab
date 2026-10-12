@@ -2,7 +2,7 @@
   "project": "memory-regression-lab",
   "status": "VALIDATED_LOCAL",
   "classification": "VERIFIED",
-  "limitation": "Exploratory measurements; trusted single-process fixtures; no leak or proven timing-regression claim.",
+  "limitation": "Exploratory single-process measurements; first-run raw samples unavailable, current run fully retained; no leak/regression proof.",
   "review": "docs/REVIEW.md",
   "tests": "results/validation.json",
   "publication_ready_for_manual_review": true,

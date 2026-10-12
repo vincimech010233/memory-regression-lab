@@ -1,0 +1,33 @@
+{
+  "classification": "OBSERVED",
+  "verdict": "INCONCLUSIVE",
+  "source": "Initial local Markdown and browser observation before report-provenance correction. Values rounded to 3 decimals as displayed.",
+  "baseline": {
+    "n": 7,
+    "mean_ms": 43.704,
+    "sample_sd_ms": 1.029,
+    "approximate_mean_ci95_ms": [
+      42.942,
+      44.467
+    ]
+  },
+  "candidate": {
+    "n": 7,
+    "mean_ms": 129.181,
+    "sample_sd_ms": 2.692,
+    "approximate_mean_ci95_ms": [
+      127.187,
+      131.176
+    ]
+  },
+  "paired_difference_ms": {
+    "mean": 85.477,
+    "approximate_ci95": [
+      83.325,
+      87.629
+    ]
+  },
+  "raw_samples_status": "NOT_VERIFIED: initial raw samples were not archived before report regeneration and are not recoverable here",
+  "current_complete_experiment": "report.json",
+  "correction": "CLI rejects existing outputs before execution and uses exclusive file creation; existing-report preservation regression test added."
+}

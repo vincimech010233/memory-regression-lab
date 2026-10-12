@@ -11,7 +11,7 @@ cargo build --locked
 c++ -O1 examples/cpp_fixture.cpp -o target/cpp_fixture
 cargo test --locked
 python3 tests/functional.py
-cargo run --locked --bin memory-regression-lab -- examples/experiment.json results/report.json results/report.md
+cargo run --locked --bin memory-regression-lab -- examples/experiment.json results/local-run.json results/local-run.md
 node --test tests/dashboard.test.js
 python3 -m http.server 8080 --bind 127.0.0.1 --directory web
 ```
@@ -41,3 +41,7 @@ Local C++ validation used a hash-checked Ubuntu g++-13 compiler package extracte
 Optional public-registry dependency review: `python3 tools/dependency_audit.py .` writes `results/dependency-audit.json`. This developer check uses the free OSV API and is separate from offline application execution. Zero listed advisories does not prove absence of vulnerabilities. License evidence is in results/licenses.json and, for scientific projects, results/python-licenses.json.
 
 Install `requirements-dev.txt` to run the recorded Ruff 0.17.0 source checks. Commands, actual versions, failed attempts, review corrections and measured peak RSS are retained in results/validation.json, results/tool-versions.json and docs/REVIEW.md. Hosted CI remains NOT_VERIFIED.
+
+Evidence preservation: choose distinct fresh output paths for each execution. Existing report files reject before measurement, and create_new prevents replacement races. The shipped results/report.json is the current fully retained seven-pair experiment. An earlier inconclusive run was superseded before raw samples were archived; its rounded observed aggregates and explicit NOT_VERIFIED raw-sample gap are preserved in results/legacy-run-aggregate.json. No historical raw measurements were reconstructed.
+
+Output parents must exist. Parent-directory canonicalization detects relative/directory aliases before measurement. JSON and Markdown are created sequentially rather than as an atomic pair; a write failure may leave a new partial pair with a failing CLI status. Existing evidence remains protected by exclusive creation.

@@ -295,5 +295,113 @@
         "output": "OBSERVED 13 queries 0 advisories\nOBSERVED peak_RSS_KiB=23036 elapsed_seconds=0.80\n"
       }
     ]
+  },
+  {
+    "timestamp": "2026-10-12T11:28:11.184957+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.086,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39392 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "cargo clippy --offline --locked -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.373,
+        "classification": "OBSERVED",
+        "output": "    Checking memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s\nOBSERVED peak_RSS_KiB=137644 elapsed_seconds=0.37\n"
+      },
+      {
+        "command": "cargo test --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.699,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest invalid ... ok\ntest reference ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests memory_regression_lab\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=163992 elapsed_seconds=0.69\n"
+      },
+      {
+        "command": "cargo build --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.091,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s\nOBSERVED peak_RSS_KiB=27744 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format src tests tools",
+        "exit_status": 0,
+        "seconds": 0.014,
+        "classification": "OBSERVED",
+        "output": "1 file reformatted, 1 file left unchanged\nOBSERVED peak_RSS_KiB=17056 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+        "exit_status": 0,
+        "seconds": 0.013,
+        "classification": "OBSERVED",
+        "output": "All checks passed!\nOBSERVED peak_RSS_KiB=18132 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.317,
+        "classification": "OBSERVED",
+        "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.231s\n\nOK\nOBSERVED peak_RSS_KiB=16184 elapsed_seconds=0.31\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:32:16.235052+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.086,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39432 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "cargo clippy --offline --locked -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.349,
+        "classification": "OBSERVED",
+        "output": "    Checking memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.28s\nOBSERVED peak_RSS_KiB=138120 elapsed_seconds=0.34\n"
+      },
+      {
+        "command": "cargo test --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.714,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.63s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest invalid ... ok\ntest reference ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests memory_regression_lab\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=165348 elapsed_seconds=0.71\n"
+      },
+      {
+        "command": "cargo build --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.047,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s\nOBSERVED peak_RSS_KiB=27612 elapsed_seconds=0.04\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format src tests tools",
+        "exit_status": 0,
+        "seconds": 0.015,
+        "classification": "OBSERVED",
+        "output": "1 file reformatted, 1 file left unchanged\nOBSERVED peak_RSS_KiB=17412 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+        "exit_status": 0,
+        "seconds": 0.013,
+        "classification": "OBSERVED",
+        "output": "All checks passed!\nOBSERVED peak_RSS_KiB=18408 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.39,
+        "classification": "OBSERVED",
+        "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.291s\n\nOK\nOBSERVED peak_RSS_KiB=16172 elapsed_seconds=0.38\n"
+      }
+    ]
   }
 ]

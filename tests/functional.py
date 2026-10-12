@@ -41,6 +41,41 @@ class Functional(unittest.TestCase):
             self.assertEqual(r.returncode, 2)
             self.assertFalse((p / "out").exists())
 
+    def test_existing_reports_preserved(self):
+        for existing in ["out", "md"]:
+            with tempfile.TemporaryDirectory() as directory:
+                p = Path(directory)
+                (p / existing).write_text("retained evidence")
+                result = subprocess.run(
+                    [
+                        "target/debug/memory-regression-lab",
+                        "examples/experiment.json",
+                        str(p / "out"),
+                        str(p / "md"),
+                    ],
+                    capture_output=True,
+                    timeout=3,
+                )
+                self.assertEqual(result.returncode, 2)
+                self.assertIn(b"fresh output paths", result.stderr)
+                self.assertEqual((p / existing).read_text(), "retained evidence")
+                self.assertFalse((p / ("md" if existing == "out" else "out")).exists())
+
+        with tempfile.TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [
+                    "target/debug/memory-regression-lab",
+                    "missing-config",
+                    directory + "/out",
+                    directory + "/./out",
+                ],
+                capture_output=True,
+                timeout=3,
+            )
+            self.assertEqual(result.returncode, 2)
+            self.assertIn(b"fresh output paths", result.stderr)
+            self.assertFalse((Path(directory) / "out").exists())
+
     def test_timeout(self):
         c = {
             "baseline": {"executable": "/bin/sleep", "args": ["1"]},
