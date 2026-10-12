@@ -1,0 +1,42 @@
+{
+  "classification": "OBSERVED",
+  "cli_cases": [
+    {
+      "case": "valid",
+      "exit_status": 0,
+      "stderr": "",
+      "report_exists": true
+    },
+    {
+      "case": "large",
+      "exit_status": 2,
+      "stderr": "fixture failed wait_status=30720\n",
+      "report_exists": false
+    },
+    {
+      "case": "malformed",
+      "exit_status": 2,
+      "stderr": "fixture instrumentation: EOF while parsing an object at line 2 column 0\n",
+      "report_exists": false
+    },
+    {
+      "case": "mismatch",
+      "exit_status": 2,
+      "stderr": "functional checksums differ; comparison rejected\n",
+      "report_exists": false
+    }
+  ],
+  "report_statistics": [
+    {
+      "kind": "baseline",
+      "n": 7,
+      "summary_matches_independent_calculation": true
+    },
+    {
+      "kind": "candidate",
+      "n": 7,
+      "summary_matches_independent_calculation": true
+    }
+  ],
+  "paired_summary_matches_independent_calculation": true
+}

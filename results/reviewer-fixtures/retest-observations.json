@@ -1,0 +1,10 @@
+{
+  "classification": "OBSERVED",
+  "config_matches_example": true,
+  "alternating_pair_order_matches": true,
+  "summary_matches_independent_calculation": [
+    "baseline",
+    "candidate"
+  ],
+  "paired_interval_matches_independent_calculation": true
+}

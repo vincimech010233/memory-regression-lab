@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "executable": "target/debug/rust_fixture",
+    "args": [
+      "4"
+    ]
+  },
+  "candidate": {
+    "executable": "target/debug/rust_fixture",
+    "args": [
+      "12"
+    ]
+  },
+  "repeats": 7,
+  "warmups": 1,
+  "timeout_ms": 2000
+}

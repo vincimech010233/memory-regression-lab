@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "executable": "results/reviewer-fixtures/child.py",
+    "args": [
+      "valid"
+    ]
+  },
+  "candidate": {
+    "executable": "results/reviewer-fixtures/child.py",
+    "args": [
+      "large"
+    ]
+  },
+  "repeats": 3,
+  "warmups": 0,
+  "timeout_ms": 2000
+}

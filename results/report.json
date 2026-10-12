@@ -1,0 +1,210 @@
+{
+  "baseline": {
+    "samples": [
+      {
+        "elapsed_ms": 41.848056,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 6008
+      },
+      {
+        "elapsed_ms": 45.412529,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 5844
+      },
+      {
+        "elapsed_ms": 44.101832,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 5956
+      },
+      {
+        "elapsed_ms": 42.245625000000004,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 5940
+      },
+      {
+        "elapsed_ms": 43.239008000000005,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 5972
+      },
+      {
+        "elapsed_ms": 43.140406,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 6024
+      },
+      {
+        "elapsed_ms": 44.325528000000006,
+        "instrumentation": {
+          "allocated_bytes": 4194926,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 4194852
+        },
+        "peak_rss_kib": 5932
+      }
+    ],
+    "summary": {
+      "approximate_mean_ci95": [
+        42.556139984944664,
+        44.390426872198205
+      ],
+      "max": 45.412529,
+      "mean": 43.473283428571435,
+      "median": 43.239008000000005,
+      "min": 41.848056,
+      "n": 7,
+      "sample_sd": 1.2380272798009282
+    }
+  },
+  "candidate": {
+    "samples": [
+      {
+        "elapsed_ms": 127.99228400000001,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14252
+      },
+      {
+        "elapsed_ms": 129.917111,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14204
+      },
+      {
+        "elapsed_ms": 132.423326,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14164
+      },
+      {
+        "elapsed_ms": 130.655462,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14068
+      },
+      {
+        "elapsed_ms": 128.832302,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14252
+      },
+      {
+        "elapsed_ms": 130.75197,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14052
+      },
+      {
+        "elapsed_ms": 128.243382,
+        "instrumentation": {
+          "allocated_bytes": 12583535,
+          "allocation_calls": 6,
+          "checksum": 2,
+          "peak_live_bytes": 12583460
+        },
+        "peak_rss_kib": 14164
+      }
+    ],
+    "summary": {
+      "approximate_mean_ci95": [
+        128.6535008221819,
+        131.00816689210382
+      ],
+      "max": 132.423326,
+      "mean": 129.83083385714286,
+      "median": 129.917111,
+      "min": 127.99228400000001,
+      "n": 7,
+      "sample_sd": 1.5892502146977383
+    }
+  },
+  "classification": "OBSERVED",
+  "config": {
+    "baseline": {
+      "args": [
+        "4"
+      ],
+      "executable": "target/debug/rust_fixture"
+    },
+    "candidate": {
+      "args": [
+        "12"
+      ],
+      "executable": "target/debug/rust_fixture"
+    },
+    "repeats": 7,
+    "timeout_ms": 2000,
+    "warmups": 1
+  },
+  "metrics": "Linux wait4 peak RSS includes process image and allocator behavior. Instrumentation counts fixture allocator calls/bytes; neither proves leaks. Normal 1.96 intervals are exploratory and can under-cover at small n. Single-process trusted fixtures only.",
+  "pair_order": [
+    "baseline_then_candidate",
+    "candidate_then_baseline",
+    "baseline_then_candidate",
+    "candidate_then_baseline",
+    "baseline_then_candidate",
+    "candidate_then_baseline",
+    "baseline_then_candidate"
+  ],
+  "paired_candidate_minus_baseline_ms": {
+    "approximate_ci95": [
+      85.01667992704915,
+      87.69842093009373
+    ],
+    "mean": 86.35755042857144
+  },
+  "verdict": "INCONCLUSIVE: timing observations are not proof of a regression"
+}

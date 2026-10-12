@@ -1,0 +1,1 @@
+{"name":"memory-regression-lab-dashboard","private":true,"type":"module","scripts":{"test":"node --test tests/dashboard.test.js"}}

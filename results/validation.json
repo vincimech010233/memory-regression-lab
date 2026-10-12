@@ -1,0 +1,299 @@
+[
+  {
+    "timestamp": "2026-10-12T10:32:44.628017+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.083,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39372 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "cargo build --offline",
+        "exit_status": 0,
+        "seconds": 9.535,
+        "classification": "OBSERVED",
+        "output": "     Locking 12 packages to latest Rust 1.98.1 compatible versions\n      Adding libc v0.2.186 (available: v0.2.190)\n      Adding serde v1.0.228 (available: v1.0.229)\n      Adding serde_core v1.0.228 (available: v1.0.229)\n      Adding serde_derive v1.0.228 (available: v1.0.229)\n      Adding serde_json v1.0.149 (available: v1.0.151)\n   Compiling proc-macro2 v1.0.107\n   Compiling unicode-ident v1.0.26\n   Compiling quote v1.0.47\n   Compiling serde_core v1.0.228\n   Compiling zmij v1.0.23\n   Compiling syn v2.0.119\n   Compiling serde_json v1.0.149\n   Compiling serde v1.0.228\n   Compiling libc v0.2.186\n   Compiling serde_derive v1.0.228\n   Compiling itoa v1.0.18\n   Compiling memchr v2.8.3\n   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.50s\nOBSERVED peak_RSS_KiB=271924 elapsed_seconds=9.53\n"
+      },
+      {
+        "command": "cargo test --offline",
+        "exit_status": 0,
+        "seconds": 0.691,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest invalid ... ok\ntest reference ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests memory_regression_lab\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=138324 elapsed_seconds=0.68\n"
+      },
+      {
+        "command": "cargo clippy --offline -- -D warnings",
+        "exit_status": 0,
+        "seconds": 3.332,
+        "classification": "OBSERVED",
+        "output": "    Checking serde_core v1.0.228\n    Checking zmij v1.0.23\n    Checking itoa v1.0.18\n    Checking memchr v2.8.3\n    Checking libc v0.2.186\n    Checking serde_json v1.0.149\n    Checking serde v1.0.228\n    Checking memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.27s\nOBSERVED peak_RSS_KiB=248320 elapsed_seconds=3.33\n"
+      },
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 0.392,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: invalid report rejects\nok 1 - invalid report rejects\n  ---\n  duration_ms: 3.037631\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 224.544014\nOBSERVED peak_RSS_KiB=49472 elapsed_seconds=0.39\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T10:32:57.731957+00:00",
+    "checks": [
+      {
+        "command": "sha256sum toolchain/*.deb",
+        "exit_status": 0,
+        "seconds": 0.042,
+        "classification": "OBSERVED",
+        "output": "0bd6af6164252d4ea9170d201ee4c10a3120fe0fc04985a00be3bc9076353844  toolchain/g++-13-x86-64-linux-gnu_13.3.0-6ubuntu2~24.04.1_amd64.deb\nOBSERVED peak_RSS_KiB=3772 elapsed_seconds=0.04\n"
+      },
+      {
+        "command": "test $(sha256sum toolchain/*.deb | cut -d' ' -f1) = 0bd6af6164252d4ea9170d201ee4c10a3120fe0fc04985a00be3bc9076353844",
+        "exit_status": 0,
+        "seconds": 0.043,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=3772 elapsed_seconds=0.04\n"
+      },
+      {
+        "command": "/usr/bin/dpkg-deb -x toolchain/*.deb toolchain/extracted",
+        "exit_status": 0,
+        "seconds": 0.192,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=10160 elapsed_seconds=0.19\n"
+      },
+      {
+        "command": "gcc -Btoolchain/extracted/usr/lib/gcc/x86_64-linux-gnu/13/ -O1 -x c++ examples/cpp_fixture.cpp -l:libstdc++.so.6 -o target/cpp_fixture",
+        "exit_status": 0,
+        "seconds": 0.289,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=23184 elapsed_seconds=0.28\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.385,
+        "classification": "OBSERVED",
+        "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.273s\n\nOK\nOBSERVED peak_RSS_KiB=16288 elapsed_seconds=0.38\n"
+      },
+      {
+        "command": "cargo run --offline --locked --bin memory-regression-lab -- examples/experiment.json results/report.json results/report.md",
+        "exit_status": 0,
+        "seconds": 1.482,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s\n     Running `target/debug/memory-regression-lab examples/experiment.json results/report.json results/report.md`\nOBSERVED peak_RSS_KiB=34364 elapsed_seconds=1.48\n"
+      },
+      {
+        "command": "cargo fmt --check",
+        "exit_status": 0,
+        "seconds": 0.075,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39348 elapsed_seconds=0.07\n"
+      },
+      {
+        "command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund",
+        "exit_status": 0,
+        "seconds": 0.726,
+        "classification": "OBSERVED",
+        "output": "\nup to date in 93ms\nOBSERVED peak_RSS_KiB=78360 elapsed_seconds=0.72\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T10:35:06.618789+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.101,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39092 elapsed_seconds=0.09\n"
+      },
+      {
+        "command": "cargo clippy --offline -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.488,
+        "classification": "OBSERVED",
+        "output": "    Checking memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.41s\nOBSERVED peak_RSS_KiB=137012 elapsed_seconds=0.48\n"
+      },
+      {
+        "command": "cargo test --offline",
+        "exit_status": 0,
+        "seconds": 1.238,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.15s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest reference ... ok\ntest invalid ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests memory_regression_lab\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=170104 elapsed_seconds=1.23\n"
+      },
+      {
+        "command": "cargo build --offline",
+        "exit_status": 0,
+        "seconds": 0.093,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s\nOBSERVED peak_RSS_KiB=27724 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.321,
+        "classification": "OBSERVED",
+        "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.224s\n\nOK\nOBSERVED peak_RSS_KiB=16112 elapsed_seconds=0.31\n"
+      },
+      {
+        "command": "cargo run --offline --locked --bin memory-regression-lab -- examples/experiment.json results/report.json results/report.md",
+        "exit_status": 0,
+        "seconds": 1.442,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running `target/debug/memory-regression-lab examples/experiment.json results/report.json results/report.md`\nOBSERVED peak_RSS_KiB=27936 elapsed_seconds=1.44\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T10:36:09.705576+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.082,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39388 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "cargo clippy --offline -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.233,
+        "classification": "OBSERVED",
+        "output": "    Checking memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.17s\nOBSERVED peak_RSS_KiB=136820 elapsed_seconds=0.23\n"
+      },
+      {
+        "command": "cargo build --offline",
+        "exit_status": 0,
+        "seconds": 0.479,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.45s\nOBSERVED peak_RSS_KiB=156856 elapsed_seconds=0.47\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.317,
+        "classification": "OBSERVED",
+        "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.232s\n\nOK\nOBSERVED peak_RSS_KiB=16012 elapsed_seconds=0.31\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:13:30.909042+00:00",
+    "checks": [
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,F --fix --output-format concise",
+        "exit_status": 0,
+        "seconds": 0.015,
+        "classification": "OBSERVED",
+        "output": "Found 2 errors (2 fixed, 0 remaining).\nOBSERVED peak_RSS_KiB=19304 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format src tests tools",
+        "exit_status": 0,
+        "seconds": 0.013,
+        "classification": "OBSERVED",
+        "output": "2 files reformatted\nOBSERVED peak_RSS_KiB=17736 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+        "exit_status": 0,
+        "seconds": 0.012,
+        "classification": "OBSERVED",
+        "output": "All checks passed!\nOBSERVED peak_RSS_KiB=18756 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format --check src tests tools",
+        "exit_status": 0,
+        "seconds": 0.013,
+        "classification": "OBSERVED",
+        "output": "2 files already formatted\nOBSERVED peak_RSS_KiB=16072 elapsed_seconds=0.01\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:13:32.148290+00:00",
+    "checks": [
+      {
+        "command": "../portfolio-delivery-20261012/node_modules/.bin/prettier --write web/*.html tests/*.js web/*.js",
+        "exit_status": 0,
+        "seconds": 0.627,
+        "classification": "OBSERVED",
+        "output": "web/index.html 103ms\ntests/dashboard.test.js 59ms\nweb/dashboard.js 41ms\nOBSERVED peak_RSS_KiB=71760 elapsed_seconds=0.62\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/node_modules/.bin/prettier --check web/*.html tests/*.js web/*.js",
+        "exit_status": 0,
+        "seconds": 0.611,
+        "classification": "OBSERVED",
+        "output": "Checking formatting...\nAll matched files use Prettier code style!\nOBSERVED peak_RSS_KiB=72012 elapsed_seconds=0.60\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:13:32.463961+00:00",
+    "checks": [
+      {
+        "command": "gcc -Btoolchain/extracted/usr/lib/gcc/x86_64-linux-gnu/13/ -O1 -Wall -Wextra -Werror -x c++ examples/cpp_fixture.cpp -l:libstdc++.so.6 -o target/cpp_fixture",
+        "exit_status": 0,
+        "seconds": 0.314,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=23476 elapsed_seconds=0.31\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:13:33.824517+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt --check",
+        "exit_status": 0,
+        "seconds": 0.07,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39192 elapsed_seconds=0.06\n"
+      },
+      {
+        "command": "cargo clippy --offline --locked -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.164,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s\nOBSERVED peak_RSS_KiB=36708 elapsed_seconds=0.16\n"
+      },
+      {
+        "command": "cargo test --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.446,
+        "classification": "OBSERVED",
+        "output": "   Compiling memory-regression-lab v0.1.0 ([workspace]/projects/memory-regression-lab)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest invalid ... ok\ntest reference ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests memory_regression_lab\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=133720 elapsed_seconds=0.44\n"
+      },
+      {
+        "command": "python3 tests/functional.py",
+        "exit_status": 0,
+        "seconds": 0.322,
+        "classification": "OBSERVED",
+        "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.245s\n\nOK\nOBSERVED peak_RSS_KiB=16064 elapsed_seconds=0.32\n"
+      },
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 0.357,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: invalid report rejects\nok 1 - invalid report rejects\n  ---\n  duration_ms: 2.029612\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 189.376367\nOBSERVED peak_RSS_KiB=49756 elapsed_seconds=0.35\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:13:34.632801+00:00",
+    "checks": [
+      {
+        "command": "python3 tools/dependency_audit.py .",
+        "exit_status": 0,
+        "seconds": 0.803,
+        "classification": "OBSERVED",
+        "output": "OBSERVED 13 queries 0 advisories\nOBSERVED peak_RSS_KiB=23036 elapsed_seconds=0.80\n"
+      }
+    ]
+  }
+]

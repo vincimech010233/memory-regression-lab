@@ -1,0 +1,13 @@
+{
+  "classification": "OBSERVED",
+  "rustc": "1.98.1",
+  "cargo": "1.98.1",
+  "python": "3.12.3",
+  "node": "18.19.1",
+  "gcc": "13.3.0",
+  "cpp_compiler_package": "13.3.0-6ubuntu2~24.04.1",
+  "execution_threads": 2,
+  "limits": "512 MiB child virtual memory, 2 second child timeout; 180 second build/check timeout",
+  "ruff": "0.17.0",
+  "prettier": "3.9.10"
+}

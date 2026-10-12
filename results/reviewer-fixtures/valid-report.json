@@ -1,0 +1,104 @@
+{
+  "baseline": {
+    "samples": [
+      {
+        "elapsed_ms": 51.21456499999999,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10612
+      },
+      {
+        "elapsed_ms": 34.712438,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10604
+      },
+      {
+        "elapsed_ms": 31.962448,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10572
+      }
+    ],
+    "summary": {
+      "approximate_mean_ci95": [
+        27.513578967386024,
+        51.079388365947295
+      ],
+      "max": 51.21456499999999,
+      "mean": 39.29648366666666,
+      "median": 34.712438,
+      "min": 31.962448,
+      "n": 3,
+      "sample_sd": 10.412545714232724
+    }
+  },
+  "candidate": {
+    "samples": [
+      {
+        "elapsed_ms": 42.217339,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10588
+      },
+      {
+        "elapsed_ms": 60.18312,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10568
+      },
+      {
+        "elapsed_ms": 30.877198,
+        "instrumentation": {
+          "allocated_bytes": 1024,
+          "allocation_calls": 1,
+          "checksum": 2,
+          "peak_live_bytes": 1024
+        },
+        "peak_rss_kib": 10584
+      }
+    ],
+    "summary": {
+      "approximate_mean_ci95": [
+        27.703837511908873,
+        61.14793382142446
+      ],
+      "max": 60.18312,
+      "mean": 44.425885666666666,
+      "median": 42.217339,
+      "min": 30.877198,
+      "n": 3,
+      "sample_sd": 14.77726378094586
+    }
+  },
+  "classification": "OBSERVED",
+  "metrics": "Linux wait4 peak RSS includes process image and allocator behavior. Instrumentation counts fixture allocator calls/bytes; neither proves leaks. Normal 1.96 intervals are exploratory and can under-cover at small n. Single-process trusted fixtures only.",
+  "paired_candidate_minus_baseline_ms": {
+    "approximate_ci95": [
+      -15.301521017804163,
+      25.560325017804175
+    ],
+    "mean": 5.129402000000005
+  },
+  "verdict": "INCONCLUSIVE: timing observations are not proof of a regression"
+}
