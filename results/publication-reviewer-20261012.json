@@ -1,0 +1,53 @@
+{
+  "role": "Separate critical review agent using the same model as developer; not an independent model or external audit",
+  "timestamp": "2026-10-12T11:54:30.430512+00:00",
+  "project_review": {
+    "project": "memory-regression-lab",
+    "decision": "APPROVE",
+    "classification": "VERIFIED",
+    "scope": "Public portfolio publication within the retained restricted/synthetic claims",
+    "reviewed_implementation_commit": "0e6a52844de428fddd6c528d967391ddc8a926e3",
+    "test_summary": "Rust 4 + Python 4 + dashboard 1",
+    "independent_checks_file": "reviewer-tests-memory-regression-lab.json",
+    "max_observed_check_peak_rss_kib": 74816,
+    "history_inspection": {
+      "project": "memory-regression-lab",
+      "classification": "OBSERVED",
+      "historical_commits": 2,
+      "unique_historical_blobs": 57,
+      "binary_blob_count": 1,
+      "sensitive_pattern_findings": [],
+      "unexpected_history_artifacts": [],
+      "author_email_categories": {
+        "github_noreply": 0,
+        "other_configured_address": 1
+      },
+      "readme_publication_text_stale": true
+    },
+    "resolved_findings": [
+      "Current README no longer claims manual-only/no-push status; hosted CI wording is commit-specific",
+      "Draft publication review preserves historical evidence and separate same-model reviewer disclosure"
+    ],
+    "blocking_findings": [],
+    "limitations": [
+      "Historical original raw samples unavailable; rounded INCONCLUSIVE aggregates retained",
+      "Current raw experiment retained; timing remains exploratory",
+      "Trusted direct-child scope; sequential non-atomic report pair"
+    ],
+    "source_and_test_sha256": {
+      "src/main.rs": "bd2f8e23f70687f11b28f1db746db9b8be117887600723b90c4619de2d30e82a",
+      "src/lib.rs": "3302d11fe639db44e65e7c031617743250cfc2bb78454da13ad16cf1faccf580",
+      "src/bin/rust_fixture.rs": "d886e7664fa626c6ad6443b9aa99b5dc811ee8537395a1244b55c9925fc325b5",
+      "tests/functional.py": "19ee203361785314ad45f03d08ac9668be9d8853e18e384831842580836cbb7f",
+      "tests/stats.rs": "beab754bfb2aadb820d06385b91820686fb2ec7461ac2d3e6a7a9284b6ccad66",
+      "tests/dashboard.test.js": "5e61b2e87f3d54adacf6c95367542de255b72bcad18d0f74d20e0ad845d9ec1c",
+      "tools/dependency_audit.py": "45bf49acc44285b4578b098b9dee91877cec5d25d91810b5736b3556991a352a"
+    },
+    "draft_readme_sha256": "6d610f321c6ad7f102863272d8673d2bc86a6e5bd176a8dd34eb30f237bc9867",
+    "draft_publication_review_sha256": "eeaa2c1016d9cd5c5021bb33d89befd424a6ac57dcf16a579e4e30f27fbde9ef",
+    "hosted_ci": "NOT_VERIFIED: remote workflow must be checked on published commit"
+  },
+  "scope": "Eight explicitly authorized independent public portfolio repositories; offline synthetic tests only; reviewer made no project source edits or remote changes",
+  "advisory_review": null,
+  "hosted_ci": "NOT_VERIFIED at prepublication review"
+}

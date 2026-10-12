@@ -1,0 +1,221 @@
+{
+  "classification": "VERIFIED",
+  "timestamp": "2026-10-12T11:48:06.361998+00:00",
+  "initial_clean": true,
+  "checks": [
+    {
+      "command": "cargo fmt --check",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": "cargo clippy --offline --locked -- -D warnings",
+      "exit": 0,
+      "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s\n"
+    },
+    {
+      "command": "cargo test --offline --locked",
+      "exit": 0,
+      "output": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest reference ... ok\ntest invalid ... ok\ntest limits ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n   Doc-tests memory_regression_lab\n"
+    },
+    {
+      "command": "cargo build --offline --locked",
+      "exit": 0,
+      "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s\n"
+    },
+    {
+      "command": "gcc -Btoolchain/extracted/usr/lib/gcc/x86_64-linux-gnu/13/ -O1 -Wall -Wextra -Werror -x c++ examples/cpp_fixture.cpp -l:libstdc++.so.6 -o target/cpp_fixture",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": "python3 tests/functional.py",
+      "exit": 0,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.273s\n\nOK\n"
+    },
+    {
+      "command": "node --test tests/dashboard.test.js",
+      "exit": 0,
+      "output": "TAP version 13\n# Subtest: invalid report rejects\nok 1 - invalid report rejects\n  ---\n  duration_ms: 4.516024\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 367.670618\n"
+    },
+    {
+      "command": "[workspace]/projects/portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+      "exit": 0,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "[workspace]/projects/portfolio-delivery-20261012/.venv/bin/ruff format --check src tests tools",
+      "exit": 0,
+      "output": "2 files already formatted\n"
+    }
+  ],
+  "history_scan": {
+    "unique_blobs": 57,
+    "flags": [],
+    "classification": "OBSERVED",
+    "scope": "Conservative credential/private-host-path patterns; not exhaustive secret detection; all reachable git blobs"
+  },
+  "license": {
+    "mit_present": true,
+    "third_party_metadata": [
+      "LICENSE",
+      "results/licenses.json"
+    ],
+    "limitations": "Registry metadata reviewed; exhaustive legal/supply-chain review NOT_VERIFIED. Project license does not relicense third-party dependencies."
+  },
+  "dependency_audit": {
+    "classification": "OBSERVED",
+    "timestamp": "2026-10-12T11:48:06.361998+00:00",
+    "queries": [
+      {
+        "package": {
+          "name": "itoa",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.18"
+      },
+      {
+        "package": {
+          "name": "libc",
+          "ecosystem": "crates.io"
+        },
+        "version": "0.2.186"
+      },
+      {
+        "package": {
+          "name": "memchr",
+          "ecosystem": "crates.io"
+        },
+        "version": "2.8.3"
+      },
+      {
+        "package": {
+          "name": "proc-macro2",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.107"
+      },
+      {
+        "package": {
+          "name": "quote",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.47"
+      },
+      {
+        "package": {
+          "name": "serde",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_core",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_derive",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_json",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.149"
+      },
+      {
+        "package": {
+          "name": "syn",
+          "ecosystem": "crates.io"
+        },
+        "version": "2.0.119"
+      },
+      {
+        "package": {
+          "name": "unicode-ident",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.26"
+      },
+      {
+        "package": {
+          "name": "zmij",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.23"
+      },
+      {
+        "package": {
+          "name": "ruff",
+          "ecosystem": "PyPI"
+        },
+        "version": "0.17.0"
+      }
+    ],
+    "response": {
+      "results": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    "advisories": 0,
+    "scope": "OSV version lookup; no vulnerability-free or full supply-chain/legal assurance"
+  },
+  "tests_pass": true,
+  "working_tree_clean": true,
+  "reviewed_commit": "0e6a52844de428fddd6c528d967391ddc8a926e3",
+  "phase": "Prepublication verification of implementation; documentation/evidence additions follow in the publication commit",
+  "example_reproduction": {
+    "classification": "VERIFIED",
+    "checks": [
+      {
+        "command": [
+          "[workspace]/projects/memory-regression-lab/target/debug/memory-regression-lab",
+          "examples/experiment.json",
+          "[workspace]/projects/portfolio-publication-20261012/examples/memory-regression-lab/report.json",
+          "[workspace]/projects/portfolio-publication-20261012/examples/memory-regression-lab/report.md"
+        ],
+        "exit": 0,
+        "output": ""
+      }
+    ],
+    "semantic_equal": false,
+    "comparison_scope": "Timing/RSS are new observations; structural experiment profile preserved, never exact timing assertions",
+    "output": "examples/memory-regression-lab/report.json",
+    "structural_checks": {
+      "config": true,
+      "pair_order": true,
+      "metrics": true,
+      "verdict": true,
+      "classification": true,
+      "sample_count_equal": true,
+      "checksums_equal_two": true,
+      "candidate_requested_bytes_increase": true
+    }
+  },
+  "authorship_privacy": {
+    "classification": "VERIFIED",
+    "original_git_author_identities_already_in_public_profile_history": true,
+    "address_values_retained_in_this_record": false
+  },
+  "hosted_ci": "NOT_VERIFIED at this prepublication gate; use exact commit GitHub Actions run after push",
+  "known_limitations_retained": true
+}

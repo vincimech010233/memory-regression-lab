@@ -26,7 +26,7 @@ No leak detector, allocation stack tracing or automatic regression declaration. 
 
 Evidence labels: VERIFIED = checked against a stated criterion; OBSERVED = measured execution; INFERRED = interpretation; HYPOTHESIS = proposed explanation; NOT_VERIFIED = missing evidence. Local status and executed commands are in `results/validation.json` and `docs/REVIEW.md`. Synthetic validation establishes implementation behavior, not production accuracy.
 
-Manual GitHub preparation only: separate local Git repository, original MIT code, no push or PR. CI uses public dependency registries and requires no secrets. See `docs/PROVENANCE.md` for dependency and advisory review scope.
+This is an independent Git repository with original MIT project code. Publication-gate evidence is in `results/publication-gate-20261012.json` and `docs/PUBLICATION_REVIEW.md`. The original local-delivery records are retained as historical evidence. CI uses public dependency registries and requires no secrets. See `docs/PROVENANCE.md` for dependency and advisory review scope.
 
 ## License
 
@@ -40,7 +40,7 @@ Local C++ validation used a hash-checked Ubuntu g++-13 compiler package extracte
 
 Optional public-registry dependency review: `python3 tools/dependency_audit.py .` writes `results/dependency-audit.json`. This developer check uses the free OSV API and is separate from offline application execution. Zero listed advisories does not prove absence of vulnerabilities. License evidence is in results/licenses.json and, for scientific projects, results/python-licenses.json.
 
-Install `requirements-dev.txt` to run the recorded Ruff 0.17.0 source checks. Commands, actual versions, failed attempts, review corrections and measured peak RSS are retained in results/validation.json, results/tool-versions.json and docs/REVIEW.md. Hosted CI remains NOT_VERIFIED.
+Install `requirements-dev.txt` to run the recorded Ruff 0.17.0 source checks. Commands, actual versions, failed attempts, review corrections and measured peak RSS are retained in results/validation.json, results/tool-versions.json and docs/REVIEW.md. Check the GitHub Actions run for the exact commit before claiming hosted CI success; older local-delivery records retain their as-of NOT_VERIFIED status.
 
 Evidence preservation: choose distinct fresh output paths for each execution. Existing report files reject before measurement, and create_new prevents replacement races. The shipped results/report.json is the current fully retained seven-pair experiment. An earlier inconclusive run was superseded before raw samples were archived; its rounded observed aggregates and explicit NOT_VERIFIED raw-sample gap are preserved in results/legacy-run-aggregate.json. No historical raw measurements were reconstructed.
 

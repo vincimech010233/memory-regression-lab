@@ -1,0 +1,37 @@
+[
+  {
+    "command": "cargo test --offline --locked --jobs 2",
+    "exit_status": 0,
+    "elapsed_seconds": 0.086,
+    "classification": "OBSERVED",
+    "output": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest constant_and_even ... ok\ntest invalid ... ok\ntest limits ... ok\ntest reference ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s\n     Running unittests src/lib.rs (target/debug/deps/memory_regression_lab-fe22fbeffc863956)\n     Running unittests src/main.rs (target/debug/deps/memory_regression_lab-241de6614705c993)\n     Running unittests src/bin/rust_fixture.rs (target/debug/deps/rust_fixture-efa43c07c125f86c)\n     Running tests/stats.rs (target/debug/deps/stats-1dbdc6f911a1008d)\n   Doc-tests memory_regression_lab\nREVIEW_OBSERVED_PEAK_RSS_KIB=74816\n"
+  },
+  {
+    "command": "cargo fmt --check",
+    "exit_status": 0,
+    "elapsed_seconds": 0.065,
+    "classification": "OBSERVED",
+    "output": "REVIEW_OBSERVED_PEAK_RSS_KIB=39384\n"
+  },
+  {
+    "command": "cargo clippy --offline --locked -- -D warnings",
+    "exit_status": 0,
+    "elapsed_seconds": 0.11,
+    "classification": "OBSERVED",
+    "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s\nREVIEW_OBSERVED_PEAK_RSS_KIB=36640\n"
+  },
+  {
+    "command": "python3 tests/functional.py",
+    "exit_status": 0,
+    "elapsed_seconds": 0.298,
+    "classification": "OBSERVED",
+    "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.216s\n\nOK\nREVIEW_OBSERVED_PEAK_RSS_KIB=16180\n"
+  },
+  {
+    "command": "node --test tests/dashboard.test.js",
+    "exit_status": 0,
+    "elapsed_seconds": 0.312,
+    "classification": "OBSERVED",
+    "output": "TAP version 13\n# Subtest: invalid report rejects\nok 1 - invalid report rejects\n  ---\n  duration_ms: 1.765631\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 1\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 180.232139\nREVIEW_OBSERVED_PEAK_RSS_KIB=49548\n"
+  }
+]
